@@ -15,7 +15,7 @@
       <ExploreContainer name="Tab 2 page" />
     </ion-content>
   </ion-page>
-</template>
+  </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue';
