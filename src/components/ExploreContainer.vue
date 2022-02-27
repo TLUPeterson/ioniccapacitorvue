@@ -24,6 +24,7 @@ export default defineComponent({
   right: 0;
   top: 50%;
   transform: translateY(-50%);
+  color:deeppink;
 }
 
 #container strong {
