@@ -8,7 +8,7 @@
 >root kaustas "ionic capacitor run android"
 
 
-Kõige raskem oli asjade ülesseadistamine. Ilmselt oleks olnud kergem, aga tegin alguses midagi valesti (pluss sdk versioonidega oli mingi jama).
+Kõige raskem oli asjade ülesseadistamine. Ilmselt oleks olnud kergem, aga tegin alguses midagi valesti (sdk lokatsiooniga oli mingi kala).
 Praegu väga Vue'sse ei süvenenud, kuid mingite väikeste muutuste tegemine oli üsna lihtne.
 
 ```
