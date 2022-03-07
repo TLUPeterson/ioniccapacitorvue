@@ -2,7 +2,7 @@
 
 ## Installimine
 
-```sh
+```
 >install Android Studio with SDK 30 (Vist aitab ainult android sdk installimisest)
 >install node
 
