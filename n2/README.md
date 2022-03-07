@@ -44,6 +44,42 @@ var app = new Vue({
 })
 
 ```
+Loop
+- Vue
+```vue.js
+<ul>
+  <li v-for="item in items" :key="item.message">
+    {{ item.message }}
+  </li>
+</ul>
+```
+```vue.js
+items: [
+  { message: 'Foo' },
+  { message: 'Bar' }
+]
+
+```
+##
+- React
+```react.js
+const items = [
+        { message: 'Foo' },
+        { message: 'Bar' }
+];
+
+function App() {
+  return (
+    <div>
+      {items.map((message, index) => (
+        <li key={index}>
+          {message}
+        </li>
+      ))}
+    </div>
+  );
+}
+```
 
 
 
