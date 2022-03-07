@@ -3,6 +3,7 @@
 
   - JSX/HTML
   - easier learning curve
+  - popularity
 
 ##
 ### Hello World!
