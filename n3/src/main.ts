@@ -3,6 +3,7 @@ import App from './App.vue'
 import router from './router';
 import MainLayout from  './components/MainLayout.vue';
 import SideMenu from './components/SideMenu.vue';
+import { defineCustomElements } from '@ionic/pwa-elements/loader';
 
 import { IonicVue } from '@ionic/vue';
 
@@ -38,3 +39,4 @@ const app = createApp(App)
 router.isReady().then(() => {
   app.mount('#app');
 });
+defineCustomElements(window);

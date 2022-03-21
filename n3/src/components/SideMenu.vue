@@ -5,18 +5,18 @@
         <ion-title> Welcome! </ion-title>
       </ion-toolbar>
     </ion-header>
-    <ion-content id="menu">
-      <ion-list id="menu">
+    <ion-content >
+      <ion-list>
         <ion-item button @click="toPage('/home')" >
-          <ion-icon :icon="home" slot="start"></ion-icon>
+          <ion-icon :icon="home" slot="start" id="menuIcon"></ion-icon>
           <ion-label>Home</ion-label>
         </ion-item>
         <ion-item button @click="toPage('/page2')">
-          <ion-icon :icon="build" slot="start"></ion-icon>
+          <ion-icon :icon="build" slot="start" id="menuIcon"></ion-icon>
           <ion-label>Pages2</ion-label>
         </ion-item>
         <ion-item button @click="toPage('/profile')">
-          <ion-icon :icon="bandage" slot="start"></ion-icon>
+          <ion-icon :icon="bandage" slot="start" id="menuIcon"></ion-icon>
           <ion-label>Profile Page</ion-label>
         </ion-item>
       </ion-list>

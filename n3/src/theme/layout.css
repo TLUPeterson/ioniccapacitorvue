@@ -1,37 +1,47 @@
+/*Some colors for the
+#ee786c owange
+#ee786c owange offset white
+#2c365a navy blue
+#6baed8 light blue
+#10123b dark navy
+#88cbdb turqoise
+#fffcdb yellowish white
+
+*/
+
 ion-toolbar{
-  
   --color: var(--ion-color-dark);
-  --background: rgb(199, 199, 199); 
-  height: 80px;
+  --background: #ffffffff; 
+  height: 40px;
+  --border-style: none;
+  --ion-text-color:  #00000000;
 }
+
 
 ion-content{
---background: #F6F3AC;
+--background: #ffffffff;
 --color: #E8386D;
 }
-
+ion-title{
+  --color: #10123b;
+}
 ion-list{
-  --background: #ffffffff;
-  --color: #ffffffff;
+  --background: red;
+  --color: red;
+  --ion-item-background:#ffffffff;
+  --ion-text-color:#10123b;
+  --ion-border-color: #6baed8;
+}
+#menuIcon{
+  color:#6baed8;
 }
 /*
 https://ionicframework.com/docs/theming/themes
 https://ionicframework.com/docs/theming/basics
 */
 
-#container {
-  height: 400px;
-  width: 400px;
-  position: relative;
-}
-#tent {
-  position: absolute;
-  left: 0;
-  top: -75px;
-}
 #h4 {
   z-index: 100;
-  position: absolute;
   color: white;
   font-size: 30px;
   font-weight: bold;
@@ -39,21 +49,35 @@ https://ionicframework.com/docs/theming/basics
   top: 80px;
 }
 
-ion-toolbar {
-  --background: linear-gradient(162deg, #2FDDF5 20%, #6130FF 100%), url(../../public/assets/sth.jpg) top  no-repeat transparent ;
-}
 
 #profileButton{
   position: absolute;
   bottom:-1px;
 }
 
-#avatar {
+#mainProfileImage {
+  width:100% !important;  
+  height : 100% !important;  
+  max-width: 200px !important;
+  max-height: 200px !important;
+  position: center;
   margin:auto;
-  size:200%;
 }
 
-#menu {
-  color: #FF9D30;
-  --background-color: #FF9D30;
+h2 {
+  font-size: 30px;
+  color: #2c365a;
+  text-align: center;
+
+}
+
+#menuButton{
+  color: #2c365a
+}
+#menuText{
+  color: #2c365a;
+}
+
+#menu{
+  color: #2c365a;
 }

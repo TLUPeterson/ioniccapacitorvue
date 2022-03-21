@@ -1,12 +1,12 @@
 <template>
     <ion-page>
-        <ion-header>
+        <ion-header class="ion-no-border">
 
-            <ion-toolbar>
-              <ion-buttons @click="openMenu()" slot="start">
+            <ion-toolbar >
+              <ion-buttons @click="openMenu()" slot="start" id="menuButton">
                 <ion-icon :icon="menu" slot="start"></ion-icon>
               </ion-buttons>
-                <ion-title>{{pageTitle}}</ion-title>
+                <ion-title id="menuText">{{pageTitle}}</ion-title>
             </ion-toolbar>
         </ion-header>
         <ion-content>
