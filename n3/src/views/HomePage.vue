@@ -15,13 +15,13 @@
           </svg>  
     
   <ion-fab vertical="bottom" horizontal="center" slot="fixed">
-      <ion-fab-button @click="takePhoto()">
+      <ion-fab-button v-on:click="takePhoto()"> 
           <ion-icon :icon="camera"></ion-icon>
       </ion-fab-button>
   </ion-fab>
 
   <ion-avatar id="mainProfileImage" :key="photo" v-for="photo in photos">
-      <ion-img :src="photo.webviewPath"></ion-img> 
+      <ion-img :src="photo.webviewPath" ></ion-img> 
   </ion-avatar>
 
   <h2>

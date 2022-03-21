@@ -7,15 +7,15 @@
     </ion-header>
     <ion-content >
       <ion-list>
-        <ion-item button @click="toPage('/home')" >
+        <ion-item button v-on:click="toPage('/home')" >
           <ion-icon :icon="home" slot="start" id="menuIcon"></ion-icon>
           <ion-label>Home</ion-label>
         </ion-item>
-        <ion-item button @click="toPage('/page2')">
+        <ion-item button v-on:click="toPage('/page2')">
           <ion-icon :icon="build" slot="start" id="menuIcon"></ion-icon>
           <ion-label>Pages2</ion-label>
         </ion-item>
-        <ion-item button @click="toPage('/profile')">
+        <ion-item button v-on:click="toPage('/profile')">
           <ion-icon :icon="bandage" slot="start" id="menuIcon"></ion-icon>
           <ion-label>Profile Page</ion-label>
         </ion-item>

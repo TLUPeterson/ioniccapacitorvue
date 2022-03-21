@@ -81,3 +81,9 @@ h2 {
 #menu{
   color: #2c365a;
 }
+
+ion-checkbox{
+  --border-color: #6baed8;
+  --background-checked: #2c365a;
+  --border-color-checked: white;
+}
