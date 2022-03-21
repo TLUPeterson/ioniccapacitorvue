@@ -1,0 +1,89 @@
+/*Some colors for the
+#ee786c owange
+#ee786c owange offset white
+#2c365a navy blue
+#6baed8 light blue
+#10123b dark navy
+#88cbdb turqoise
+#fffcdb yellowish white
+
+*/
+
+ion-toolbar{
+  --color: var(--ion-color-dark);
+  --background: #ffffffff; 
+  height: 40px;
+  --border-style: none;
+  --ion-text-color:  #00000000;
+}
+
+
+ion-content{
+--background: #ffffffff;
+--color: #E8386D;
+}
+ion-title{
+  --color: #10123b;
+}
+ion-list{
+  --background: red;
+  --color: red;
+  --ion-item-background:#ffffffff;
+  --ion-text-color:#10123b;
+  --ion-border-color: #6baed8;
+}
+#menuIcon{
+  color:#6baed8;
+}
+/*
+https://ionicframework.com/docs/theming/themes
+https://ionicframework.com/docs/theming/basics
+*/
+
+#h4 {
+  z-index: 100;
+  color: white;
+  font-size: 30px;
+  font-weight: bold;
+  left: 125px;
+  top: 80px;
+}
+
+
+#profileButton{
+  position: absolute;
+  bottom:-1px;
+}
+
+#mainProfileImage {
+  width:100% !important;  
+  height : 100% !important;  
+  max-width: 200px !important;
+  max-height: 200px !important;
+  position: center;
+  margin:auto;
+}
+
+h2 {
+  font-size: 30px;
+  color: #2c365a;
+  text-align: center;
+
+}
+
+#menuButton{
+  color: #2c365a
+}
+#menuText{
+  color: #2c365a;
+}
+
+#menu{
+  color: #2c365a;
+}
+
+ion-checkbox{
+  --border-color: #6baed8;
+  --background-checked: #2c365a;
+  --border-color-checked: white;
+}
