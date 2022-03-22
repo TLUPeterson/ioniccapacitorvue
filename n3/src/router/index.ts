@@ -3,6 +3,7 @@ import { RouteRecordRaw } from 'vue-router';
 import HomePage from '../views/HomePage.vue';
 import PageTwo from '../views/PageTwo.vue';
 import ProfilePage from '../views/ProfilePage.vue'
+import VrEx from '../views/VrEx.vue'
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -21,7 +22,12 @@ const routes: Array<RouteRecordRaw> = [
   {
     path: "/profile",
     component: ProfilePage,
+  },
+  {
+    path: "/vr",
+    component: VrEx,
   }
+  
 ]
 
 const router = createRouter({
