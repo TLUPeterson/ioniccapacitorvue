@@ -14,14 +14,19 @@
               <polygon points="250 0, 395 0, 395 175, 250 175" style="fill:#ee786c" />
         </svg>  
 
+
+
+
+
 <ion-content>
-  <iframe src="../../public/assets/aframe-vr.html"></iframe>
+  <iframe src="./scene.html"></iframe>
 </ion-content>
 
   </main-layout>
 </template>
 
 <script>
+
 import MainLayout from '@/components/MainLayout.vue';
 import { 
   IonCheckbox, 

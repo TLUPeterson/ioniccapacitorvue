@@ -3,7 +3,7 @@ import { RouteRecordRaw } from 'vue-router';
 import HomePage from '../views/HomePage.vue';
 import PageTwo from '../views/PageTwo.vue';
 import ProfilePage from '../views/ProfilePage.vue'
-import VrEx from '../views/VrEx.vue'
+import VrEx from '../views/ArEx.vue'
 
 const routes: Array<RouteRecordRaw> = [
   {

@@ -19,6 +19,10 @@
           <ion-icon :icon="bandage" slot="start" id="menuIcon"></ion-icon>
           <ion-label>Profile Page</ion-label>
         </ion-item>
+        <ion-item button v-on:click="toPage('/vr')">
+          <ion-icon :icon="cube" slot="start" id="menuIcon"></ion-icon>
+          <ion-label>AR</ion-label>
+        </ion-item>
       </ion-list>
     </ion-content>
   </ion-menu>
@@ -27,7 +31,7 @@
 <script>
 import {IonMenu,IonHeader,IonContent,IonToolbar,IonTitle,
   IonList,IonItem,IonIcon,IonLabel,menuController,} from "@ionic/vue";
-import { home, build, bandage } from "ionicons/icons";
+import { home, build, bandage, cube } from "ionicons/icons";
 import {useRouter} from 'vue-router'
 export default {
   components: {
@@ -45,7 +49,8 @@ export default {
     return {
       home,
       build,
-      bandage
+      bandage,
+      cube,
     };
   },
   setup(){

@@ -27,11 +27,14 @@
   <h2>
     Peeter Paan
   </h2>
+
+  
 </ion-content>
     </main-layout>
 </template>
 
 <script>
+import { Storage } from "@ionic/storage";
 import { camera, trash, close } from 'ionicons/icons';
 import { usePhotoGallery } from '@/components/usePhotoGallery';
 import {  
@@ -43,6 +46,7 @@ import {
           IonImg,
         } from '@ionic/vue'
 import {useRouter} from 'vue-router'
+
 export default {
 components:{ IonAvatar, IonFab, IonFabButton, IonIcon, IonContent, IonImg },
 setup(){
