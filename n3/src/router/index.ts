@@ -20,7 +20,7 @@ const routes: Array<RouteRecordRaw> = [
     component: PageTwo,
   },
   {
-    path: "/profile",
+    path: "/kanye",
     component: ProfilePage,
   },
   {

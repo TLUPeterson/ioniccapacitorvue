@@ -54,9 +54,23 @@ export function usePhotoGallery() {
 
   };
 
+  const deletePhoto = async (photo: UserPhoto) => {
+    // Remove this photo from the Photos reference data array
+    photos.value = photos.value.filter((p) => p.filepath !== photo.filepath);
+  
+    // delete photo file from filesystem
+    const filename = photo.filepath.substring(photo.filepath.lastIndexOf('/') + 1);
+    await Filesystem.deleteFile({
+      path: filename,
+      directory: Directory.Data,
+    });
+  };
+  
+
   return {
     photos,
     takePhoto,
+    deletePhoto,
   };
 }
 const convertBlobToBase64 = (blob: Blob) =>
@@ -106,7 +120,7 @@ const convertBlobToBase64 = (blob: Blob) =>
       };
     }
   };
-
+  
 
 export interface UserPhoto {
   filepath: string;

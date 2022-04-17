@@ -18,6 +18,12 @@
 
 
 
+
+
+    <ion-title>ARLauncher</ion-title>
+
+
+
 <ion-content>
   <iframe src="./scene.html"></iframe>
 </ion-content>
@@ -28,20 +34,22 @@
 <script>
 
 import MainLayout from '@/components/MainLayout.vue';
+
 import { 
-  IonCheckbox, 
-  IonItem, 
-  IonList, 
-  IonLabel,
+  IonTitle,
   IonContent,
+
+
 } from '@ionic/vue';
 import { defineComponent } from 'vue';
 
 export default defineComponent({
   components: { 
     MainLayout,
-    IonContent 
-    
+    IonContent ,
+    IonTitle,
+
+
   }
 });
 </script>

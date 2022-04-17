@@ -94,3 +94,8 @@ ion-checkbox{
   height: 100%;
   border: none;
 }
+
+#quote{
+  color: #2c365a;
+  font-size: 50px;
+}

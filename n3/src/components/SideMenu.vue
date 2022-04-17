@@ -15,9 +15,9 @@
           <ion-icon :icon="build" slot="start" id="menuIcon"></ion-icon>
           <ion-label>Pages2</ion-label>
         </ion-item>
-        <ion-item button v-on:click="toPage('/profile')">
+        <ion-item button v-on:click="toPage('/kanye')">
           <ion-icon :icon="bandage" slot="start" id="menuIcon"></ion-icon>
-          <ion-label>Profile Page</ion-label>
+          <ion-label>Quotes from the one</ion-label>
         </ion-item>
         <ion-item button v-on:click="toPage('/vr')">
           <ion-icon :icon="cube" slot="start" id="menuIcon"></ion-icon>
