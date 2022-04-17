@@ -21,19 +21,34 @@
   </ion-fab>
 
   <ion-avatar id="mainProfileImage" :key="photo" v-for="photo in photos">
-      <ion-img :src="photo.webviewPath" ></ion-img> 
+      <ion-img :src="photo.webviewPath" @click="showActionSheet(photo)" ></ion-img> 
   </ion-avatar>
 
-  <h2>
-    Peeter Paan
-  </h2>
+    <ion-fab vertical="bottom" horizontal="left" slot="fixed">
+      <ion-fab-button @click="setName()"> 
+          <ion-icon :icon="checkmark">Test</ion-icon>
+      </ion-fab-button>
+  </ion-fab>
+
+      <ion-fab vertical="top" horizontal="center" slot="fixed">
+      <ion-fab-button @click="checkName()" > 
+          Test="value"
+      </ion-fab-button>
+  </ion-fab>
+  
+
+
+
+  
 </ion-content>
     </main-layout>
 </template>
 
 <script>
-import { camera, trash, close } from 'ionicons/icons';
+import { camera, trash, close, checkmark } from 'ionicons/icons';
 import { usePhotoGallery } from '@/components/usePhotoGallery';
+import { Storage } from '@capacitor/storage';
+
 import {  
           IonAvatar,
           IonFab,
@@ -41,26 +56,70 @@ import {
           IonIcon,
           IonContent,
           IonImg,
+          actionSheetController,
         } from '@ionic/vue'
 import {useRouter} from 'vue-router'
+
 export default {
-components:{ IonAvatar, IonFab, IonFabButton, IonIcon, IonContent, IonImg },
+components:{ IonAvatar, IonFab, IonFabButton, IonIcon, IonContent, IonImg, actionSheetController },
 setup(){
-    const { takePhoto, photos } = usePhotoGallery();
+    const { takePhoto, photos, deletePhoto } = usePhotoGallery();
     const router = useRouter();
+
+    const setName = async () => {
+        await Storage.set({
+            key: 'name',
+            value: 'Max',
+        });};
+
+    const checkName = async () => {
+        const { value } = await Storage.get({ key: 'name' });
+        console.log(`Hello ${value}!`);
+        };
+
+    const showActionSheet = async (photo) => {
+        const actionSheet = await actionSheetController.create({
+        header: 'Photos',
+        buttons: [
+        {
+            text: 'Delete',
+            role: 'destructive',
+            icon: trash,
+            handler: () => {
+            deletePhoto(photo);
+            },
+        },
+        {
+            text: 'Cancel',
+            icon: close,
+            role: 'cancel',
+            handler: () => {
+            // Nothing to do, action sheet is automatically closed
+            },
+        },
+        ],
+    });
+    await actionSheet.present();
+};
     return{
         router,
         photos,
         takePhoto,
+        showActionSheet,
         camera,
         trash,
         close,
+        checkmark,
+        setName,
+        checkName,
+
         
     };},
+    
 methods:{
     toPage(path){
         this.router.push(path);
     }
-}
+},
 }
 </script>
