@@ -24,27 +24,23 @@
       <ion-img :src="photo.webviewPath" @click="showActionSheet(photo)" ></ion-img> 
   </ion-avatar>
 
-    <ion-fab vertical="bottom" horizontal="left" slot="fixed">
-      <ion-fab-button @click="setName()"> 
-          <ion-icon :icon="checkmark">Test</ion-icon>
-      </ion-fab-button>
-  </ion-fab>
-
-      <ion-fab vertical="top" horizontal="center" slot="fixed">
-      <ion-fab-button @click="checkName()" > 
-          Test="value"
-      </ion-fab-button>
-  </ion-fab>
-  
+  <div id="profile">
+  <p>
+    My name is <input v-model="name">
+    and I am <input v-model="age"> years old.
+  </p>
+  <p>
+    <button id="quoteButton" @click="persist">Save</button>
+  </p>
+</div>
 
 
-
-  
 </ion-content>
     </main-layout>
 </template>
 
 <script>
+/* eslint-disable vue/no-unused-components */
 import { camera, trash, close, checkmark } from 'ionicons/icons';
 import { usePhotoGallery } from '@/components/usePhotoGallery';
 import { Storage } from '@capacitor/storage';
@@ -112,14 +108,28 @@ setup(){
         checkmark,
         setName,
         checkName,
+        name: '',
+        age: 0,
 
-        
-    };},
-    
-methods:{
-    toPage(path){
-        this.router.push(path);
+    };
+    },
+    mounted() {
+    if (localStorage.name) {
+      this.name = localStorage.name;
     }
-},
+    if (localStorage.age) {
+      this.age = localStorage.age;
+    }
+  },
+    methods:{
+        toPage(path){
+            this.router.push(path);
+        },
+        persist() {
+        localStorage.name = this.name;
+        localStorage.age = this.age;
+        console.log('now pretend I did more stuff...');
+        }
+    },
 }
 </script>

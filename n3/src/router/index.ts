@@ -2,8 +2,9 @@ import { createRouter, createWebHistory } from '@ionic/vue-router';
 import { RouteRecordRaw } from 'vue-router';
 import HomePage from '../views/HomePage.vue';
 import PageTwo from '../views/PageTwo.vue';
-import ProfilePage from '../views/ProfilePage.vue'
-import VrEx from '../views/ArEx.vue'
+import ProfilePage from '../views/ProfilePage.vue';
+import VrEx from '../views/ArEx.vue';
+import testView from '../views/testView.vue';
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -26,6 +27,10 @@ const routes: Array<RouteRecordRaw> = [
   {
     path: "/vr",
     component: VrEx,
+  },
+  {
+    path: "/test",
+    component: testView,
   }
   
 ]
