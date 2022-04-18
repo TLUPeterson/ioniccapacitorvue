@@ -98,4 +98,21 @@ ion-checkbox{
 #quote{
   color: #2c365a;
   font-size: 50px;
+  position: center;
+}
+
+#quoteButton{
+  color: white;
+  font-size: 36px;
+  position: center;
+  background: #E8386D;
+
+}
+#profile{
+  color: #ee786c;
+  font-size: 20px;
+  position: center;
+  background: white;
+  background-color: white;
+
 }

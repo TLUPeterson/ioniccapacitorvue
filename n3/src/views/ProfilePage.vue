@@ -1,26 +1,15 @@
 <template>
-  <ion-page>
-    <ion-header>
-      <ion-toolbar>
-        <ion-title>Quotes from god</ion-title>
-      </ion-toolbar>
-    </ion-header>
+  <main-layout pageTitle="Home">
+    <ion-content>
 
-        <ion-content>
-  <ion-grid>
-    <ion-row>
-
-          
-    </ion-row>
-  </ion-grid>
-  <br>
-        <div id="quote">{{quotes.quote}}</div>
+        <div id="quote">🙌{{quotes.quote}}🙌</div>
         <br>
         <img src="https://i0.wp.com/culturalhistoryoftheinternet.com/wp-content/uploads/2020/11/cover2-1.jpg?resize=810%2C580&ssl=1">
+        <button id="quoteButton" @click="reloadPage">Enlighten me more</button>
 
 
 </ion-content>
-</ion-page>
+</main-layout>
 </template>
 
 <script>
@@ -28,24 +17,12 @@
   import { camera, trash, close } from 'ionicons/icons';
   import { usePhotoGallery } from '@/components/usePhotoGallery';
   import {
-    IonPage,
-    IonHeader,
-    IonToolbar,
-    IonTitle,
     IonContent,
-    IonGrid,
-    IonRow,
     } from '@ionic/vue';
 
     export default {
   components: {
-    IonPage,
-    IonHeader,
-    IonToolbar,
-    IonTitle,
     IonContent,
-    IonGrid,
-    IonRow,
   },
     data() {
     return {
@@ -68,7 +45,6 @@
   created() {
     axios.get(`https://api.kanye.rest/`)
     .then(response => {
-      // JSON responses are automatically parsed.
       this.quotes = response.data
     })
     .catch(e => {

@@ -23,6 +23,10 @@
           <ion-icon :icon="cube" slot="start" id="menuIcon"></ion-icon>
           <ion-label>AR</ion-label>
         </ion-item>
+        <ion-item button v-on:click="toPage('/test')">
+          <ion-icon :icon="cube" slot="start" id="menuIcon"></ion-icon>
+          <ion-label>Test</ion-label>
+        </ion-item>
       </ion-list>
     </ion-content>
   </ion-menu>
