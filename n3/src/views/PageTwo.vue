@@ -1,70 +1,150 @@
 <template>
   <!-- List of Text Items -->
-  <main-layout pageTitle="Notes">
-        <svg xmlns="http://www.w3.org/2000/svg"
-          xmlns:xlink="http://www.w3.org/1999/xlink"
-          width="100vh" height="20vh" 
-          >
-              <polygon points="0 0, 0 75, 0 75, 75 0" style="fill:#ee786c;" />
-              <polygon points="75 0, 0 75, 175 75, 250 0" style="fill:#6baed8" />
-              <circle cx="175" cy="75" r="75" style="fill:#2c365a;opacity:1"/>
-              <polygon points="250 0, 250 150, 175 75" style="fill:#88cbdb" />
-              <polygon points="175 75, 175 0, 250 0" style="fill:#2c365a" />
-              <polygon points="175 75, 250 75, 250 175, 175, 175" style="fill:#fffcdb" />
-              <polygon points="250 0, 395 0, 395 175, 250 175" style="fill:#ee786c" />
-        </svg>  
-  <!-- List of Input Items -->
-  <ion-list>
-    <!-- <ion-item>
-      <ion-label>Toggle</ion-label>
-      <ion-toggle slot="end"></ion-toggle>
-    </ion-item> -->
-    <ion-item>
-      <ion-label>Item 1</ion-label>
-      <ion-checkbox slot="start"></ion-checkbox>
-    </ion-item>
-    <ion-item>
-      <ion-label>Item 2</ion-label>
-      <ion-checkbox slot="start"></ion-checkbox>
-    </ion-item>
-    <ion-item>
-      <ion-label>Item 3</ion-label>
-      <ion-checkbox slot="start"></ion-checkbox>
-    </ion-item>
-  </ion-list>
+  <main-layout pageTitle="Tasks">
+        <div class="svg-container">
+          <img src="assets/header.svg" alt="header">
+        </div>
 
-  <!-- List of Sliding Items -->
-  <!-- <ion-list> -->
-    <!-- <ion-item-sliding>
-      <ion-item>
-        <ion-label>Item</ion-label>
-      </ion-item>
-      <ion-item-options side="end">
-        <ion-item-option @click="unread(item)">Unread</ion-item-option>
-      </ion-item-options>
-    </ion-item-sliding> -->
+<div className="main">
+  <!-- Add new task form. Does't allow empty entry.  -->
+      <form @keydown.enter.prevent="">
+        <ion-input type="text" class="input-todo" v-bind:class="{ active: new_todo }" placeholder="New Task" v-model="new_todo" v-on:keyup.enter="addItem"></ion-input>
+        <ion-button expand="full" class="addButton" v-bind:class="{ active: new_todo }"  @click="addItem">Add task</ion-button>
+      </form>
+  <!-- If you have atleast 1 task > shows aviable tasks -->
+      <div v-if="pending.length > 0">
+        <p className="statusBusy">You have {{ pending.length }} pending task<span v-if="pending.length>1">s</span></p>
 
-  <!-- </ion-list> -->
+  <!-- Adds task to array -->
+<!-- eslint-disable-next-line vue/no-unused-vars -->
+          <ion-list v-for="(item, index) in pending" v-bind:key="item.title">
+            <ion-checkbox v-bind:id="'item_' + item.id" v-model="item.done" ></ion-checkbox>
+            <span class="todo-text"> &#160; {{ item.title }}</span>
+            <!-- <ion-button class="delete" @click="deleteItem(item)">-</ion-button> -->
+          </ion-list>
+      </div> 
+  <!-- If no more tasks > shows no tasks message with img -->
+      <div class="ye2" v-if="!pending.length" ><img src="assets/kanye.jpg" alt="celebration">Time to chill!  You have no todos.</div> 
+  <!-- Shows the percentage of completed tasks, if more than one task is completed -->
+      <div v-if="completed.length > 0 && showComplete">
+        <p class="status">Completed tasks: {{ completedPercentage }}</p>
+
+  <!-- Lists already completed tasks if showComplete is true(button has been clicked) -->
+<!-- eslint-disable-next-line vue/no-unused-vars -->
+          <ion-list v-for="(item, index) in completed" v-bind:key="item.title">
+            <ion-checkbox v-bind:id="'item_' + item.id" v-model="item.done" ></ion-checkbox>
+            <label v-bind:for="'item_' + item.id"></label>
+            <span class="done-text">&#160;{{ item.title }}</span>
+  <!-- <ion-button class="delete" @click="deleteItem(item)">delete</ion-buttonn> -->
+          </ion-list>
+
+  </div>
+  <!-- Toggle for showButton, which shows the completed tasks -->
+      <ion-button  className="showButton" v-if="completed.length > 0" @click="toggleShowComplete">
+        <span v-if="!showComplete">Show</span><span v-else>Hide</span>&#160; Complete</ion-button>
+  <!-- If showButton is true and completed.length > 0, then show the clear all button -->
+      <ion-button className="clearBtn"  v-if="todoList.length > 0 && showComplete" @click="clearAll">Clear All</ion-button>
+      
+
+</div>
+
+
+
   </main-layout>
 </template>
 
 <script>
 import MainLayout from '@/components/MainLayout.vue';
 import { 
-  IonCheckbox, 
   IonItem, 
   IonList, 
-  IonLabel,
+  IonInput,
+  IonCheckbox,
+  IonButton,
 } from '@ionic/vue';
 import { defineComponent } from 'vue';
 
 export default defineComponent({
   components: { 
-    IonCheckbox,  
-    IonItem, 
-    IonList, 
-    IonLabel, 
+    IonCheckbox,
+    IonInput,
+    IonList,
+    IonButton,
     MainLayout 
-  }
+  },
+  data() {
+    return {
+      // Example tasks for startup
+      todoList: [
+        {"id":0,"title":"done1","done":false},
+        {"id":1,"title":"done2","done":false},
+        {"id":4,"title":"don3","done":true}
+      ],
+      new_todo: '',
+      showComplete: false,
+    };
+  },
+  mounted() {
+    this.getTodos();
+  },
+  watch: {
+    todoList: {
+      handler: function(updatedList) {
+        localStorage.setItem('todo_list', JSON.stringify(updatedList));
+      },
+      deep: true
+    }
+  },
+  computed:{
+    pending: function() {
+      return this.todoList.filter(function(item) {
+        return !item.done;
+      })
+    },
+    completed: function() {
+      return this.todoList.filter(function(item) {
+        return item.done;
+      }); 
+    },
+    // Percentage of tasks completed
+    completedPercentage: function() {
+      return (Math.floor((this.completed.length / this.todoList.length) * 100)) + "%";
+    },
+  },
+  methods: {
+    // get all todos when loading the page
+    getTodos() {
+      if (localStorage.getItem('todo_list')) {
+        this.todoList = JSON.parse(localStorage.getItem('todo_list'));
+      }
+    },
+    // add a new item
+    addItem() {
+      // validation check
+      if (this.new_todo) {
+        this.todoList.unshift({
+          id: this.todoList.length,
+          title: this.new_todo,
+          done: false,
+        });
+      }
+      // reset new_todo
+      this.new_todo = '';
+      // save the new item in localstorage
+      return true;
+    },
+    // delete an item
+    deleteItem(item) {
+      this.todoList.splice(this.todoList.indexOf(item), 1);
+    },
+    // Toggle for completed tasks
+    toggleShowComplete() {
+      this.showComplete = !this.showComplete;
+    },
+    // Delete all tasks for list
+    clearAll() {
+      this.todoList = [];
+    }
+  },
 });
 </script>

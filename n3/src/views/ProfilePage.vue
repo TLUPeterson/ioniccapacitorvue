@@ -1,11 +1,13 @@
 <template>
-  <main-layout pageTitle="Home">
+<!-- /* THIS FILE IS OBSOLOETE FOR CURRENT STATE OF THE APP, BUT LEAVING IT IN JUST IN CASE */ -->
+
+  <main-layout pageTitle="Ye!">
     <ion-content>
 
         <div id="quote">🙌{{quotes.quote}}🙌</div>
         <br>
         <img src="https://i0.wp.com/culturalhistoryoftheinternet.com/wp-content/uploads/2020/11/cover2-1.jpg?resize=810%2C580&ssl=1">
-        <button id="quoteButton" @click="reloadPage">Enlighten me more</button>
+        <button id="quoteButton" @click="reloadPage" >Enlighten me more</button>
 
 
 </ion-content>

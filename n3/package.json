@@ -10,7 +10,6 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
-    "@awesome-cordova-plugins/flashlight": "^5.40.0",
     "@capacitor-community/http": "^1.4.1",
     "@capacitor/android": "3.4.3",
     "@capacitor/app": "1.1.1",
@@ -27,9 +26,10 @@
     "@ionic/vue": "^5.9.3",
     "@ionic/vue-router": "^5.9.3",
     "axios": "^0.26.1",
-    "cordova-plugin-flashlight": "^3.2.0",
     "core-js": "^3.6.5",
+    "uuid": "^8.3.2",
     "vue": "^3.2.21",
+    "vue-localstorage": "^0.6.2",
     "vue-router": "^4.0.12"
   },
   "devDependencies": {

@@ -19,19 +19,34 @@ ion-toolbar{
 
 
 ion-content{
---background: #ffffffff;
---color: #E8386D;
+--background: rgb(255, 255, 255);
+--color: #ee786c;
+font-size: 5vw;
+/* --font-size: 50px; */
 }
 ion-title{
   --color: #10123b;
 }
 ion-list{
+  --ion-item-background:#ffffffff;
+  --ion-text-color:#10123b;
+  --ion-border-color: #6baed8;
+  
+}
+ion-button{
+  --background: #88cbdb;
+  --color: #10123b;
+  --border-color: #88cbdb;
+  --size: 2%;
+}
+
+/* ion-input{
   --background: red;
   --color: red;
   --ion-item-background:#ffffffff;
   --ion-text-color:#10123b;
   --ion-border-color: #6baed8;
-}
+} */
 #menuIcon{
   color:#6baed8;
 }
@@ -49,17 +64,11 @@ https://ionicframework.com/docs/theming/basics
   top: 80px;
 }
 
-
-#profileButton{
-  position: absolute;
-  bottom:-1px;
-}
-
 #mainProfileImage {
   width:100% !important;  
   height : 100% !important;  
-  max-width: 200px !important;
-  max-height: 200px !important;
+  max-width: 50vw;
+  max-height: 50vw !important;
   position: center;
   margin:auto;
 }
@@ -97,22 +106,121 @@ ion-checkbox{
 
 #quote{
   color: #2c365a;
-  font-size: 50px;
+  font-size: 35px;
   position: center;
 }
 
 #quoteButton{
-  color: white;
-  font-size: 36px;
+  color: #fffcdb;
+  font-size: 3vh;
+  background: #ee786c;
   position: center;
-  background: #E8386D;
+  text-align: center;
+}
+
+/* #svg-container{
+	display: inline-block;
+	position: relative;
+	width: 100%;
+	padding-bottom: 100%; 
+	vertical-align: middle; 
+	overflow: hidden; 
+} */
+
+#svg-content { 
+  width: 100%;
+}
+
+#profile{
+  color: #2c365a;
+  font-size: 8vw;
+  text-align: center;
+}
+.saveButton{
+  color: #2c365a;
+  font-size: 5vw;
+}
+
+.takePhoto{
+  font-size: 10vw;
+  position: absolute;
+  text-align: center;
+  right: 5%;
+  bottom: 5%;
+}
+
+/* .control-buttons{
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  text-align: center;
+} */
+
+
+.main{
+  left: 5%;
+  right: 5%;
+  position: absolute;
+}
+
+.ye2{
+  max-width: 50%;
+  position: relative;
+  left: 25%;
+  font-size: 6vw;
+  color: #ee786c;
+  text-align: center;
+}
+
+.statusBusy{
+  font-size:7vw;
+  color: #ee786c;
+  text-align: center;
+}
+
+.status{
+  text-align: center;
+}
+.todo-text{
+  font-size: 6vw;
+  color: #2c365a;
+  text-align: center;
+}
+
+.done-text{
+  font-size: 4vw;
+  color: #2c365a;
+  text-align: center;
+}
+
+.input-todo{
+  font-size: 6vw;
+  color: #2c365a;
+}
+.addButton{
+  font-size: 4vw;
+  color: #2c365a;
+}
+
+.showButton{
+  font-size: 3vw;
+  color: #2c365a;
+  --background: #ee786c;
+  left: 30%;
+  margin: 0;
+  text-align: center;
+  position: absolute;
 
 }
-#profile{
-  color: #ee786c;
-  font-size: 20px;
-  position: center;
-  background: white;
-  background-color: white;
 
+.clearBtn{
+  color: #2c365a;
+  --background: red;
+  position: absolute;
+  text-align: right;
+  margin: 0;
+  left: 80%;
+  font-size: 2vw;
 }

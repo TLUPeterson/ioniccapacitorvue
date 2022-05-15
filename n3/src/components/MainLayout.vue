@@ -3,9 +3,12 @@
         <ion-header class="ion-no-border">
 
             <ion-toolbar >
-              <ion-buttons @click="openMenu()" slot="start" id="menuButton">
+              <!-- Menu is not really necessary when tasks only page -->
+              <!-- <ion-buttons @click="openMenu()" slot="start" id="menuButton">
                 <ion-icon :icon="menu" slot="start"></ion-icon>
-              </ion-buttons>
+              </ion-buttons> -->
+
+              <!-- Title for a page comes from here-->
                 <ion-title id="menuText">{{pageTitle}}</ion-title>
             </ion-toolbar>
         </ion-header>
@@ -17,8 +20,15 @@
 
 <script>
 import {
-  IonPage,IonHeader,IonContent,IonTitle,IonToolbar,
-  IonButtons,menuController,IonIcon,} from "@ionic/vue";
+  IonPage,
+  IonHeader,
+  IonContent,
+  IonTitle,
+  IonToolbar,
+  menuController,
+  IonButtons,
+  IonIcon,
+  } from "@ionic/vue";
 import { menu } from "ionicons/icons";
 export default {
   components: {
@@ -27,15 +37,16 @@ export default {
     IonContent,
     IonTitle,
     IonToolbar,
-    IonButtons,
-    IonIcon,
+
   },
+  
   props: ["pageTitle"],
   data() {
     return {
       menu,
     };
   },
+  /*openMenu is for sidemenu*/ 
   methods: {
     openMenu() {
       menuController.open("sidemenu");
