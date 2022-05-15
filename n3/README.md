@@ -11,7 +11,11 @@ Brauseris jooksutamiseks: ```ionic serve```
 Füüsilises seadmes jooksutamiseks: ```ionic cap run android```
 
 ## Dependencies:
+ Vue 3.2.21
  
+ Ionic 5.9.3
+ 
+ Uuid" 8.3.2
 
 ### Autorid:
  Margen Peterson
