@@ -1,4 +1,4 @@
-# Task 
+# Task app 
 
 ## Rakenduse kirjeldus
 Taskide app, mis ei vaja interneti ühendust
