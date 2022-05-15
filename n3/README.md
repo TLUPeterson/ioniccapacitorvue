@@ -1,7 +1,7 @@
 # Task app 
 
 ## Rakenduse kirjeldus
-Taskide app, mis ei vaja interneti ühendust
+Taskide app, mis ei vaja interneti ühendust. Made with Ionic/Capacitor in Vue and typescript
 
 ## Paigaldus
 Alustuseks: ```npm install```
@@ -16,6 +16,7 @@ Füüsilises seadmes jooksutamiseks: ```ionic cap run android```
  Ionic 5.9.3
  
  Uuid" 8.3.2
-
-### Autorid:
+ 
+ ##
+Autor:
  Margen Peterson
