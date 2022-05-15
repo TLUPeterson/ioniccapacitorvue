@@ -4,14 +4,18 @@
         <div class="svg-container">
           <img src="assets/header.svg" alt="header">
         </div>
+
 <div className="main">
+  <!-- Add new task form. Does't allow empty entry.  -->
       <form @keydown.enter.prevent="">
         <ion-input type="text" class="input-todo" v-bind:class="{ active: new_todo }" placeholder="New Task" v-model="new_todo" v-on:keyup.enter="addItem"></ion-input>
         <ion-button expand="full" class="addButton" v-bind:class="{ active: new_todo }"  @click="addItem">Add task</ion-button>
       </form>
-
+  <!-- If you have atleast 1 task > shows aviable tasks -->
       <div v-if="pending.length > 0">
         <p className="statusBusy">You have {{ pending.length }} pending task<span v-if="pending.length>1">s</span></p>
+
+  <!-- Adds task to array -->
 <!-- eslint-disable-next-line vue/no-unused-vars -->
           <ion-list v-for="(item, index) in pending" v-bind:key="item.title">
             <ion-checkbox v-bind:id="'item_' + item.id" v-model="item.done" ></ion-checkbox>
@@ -19,24 +23,30 @@
             <!-- <ion-button class="delete" @click="deleteItem(item)">-</ion-button> -->
           </ion-list>
       </div> 
-
+  <!-- If no more tasks > shows no tasks message with img -->
       <div class="ye2" v-if="!pending.length" ><img src="assets/kanye.jpg" alt="celebration">Time to chill!  You have no todos.</div> 
-
+  <!-- Shows the percentage of completed tasks, if more than one task is completed -->
       <div v-if="completed.length > 0 && showComplete">
         <p class="status">Completed tasks: {{ completedPercentage }}</p>
+
+  <!-- Lists already completed tasks if showComplete is true(button has been clicked) -->
 <!-- eslint-disable-next-line vue/no-unused-vars -->
           <ion-list v-for="(item, index) in completed" v-bind:key="item.title">
             <ion-checkbox v-bind:id="'item_' + item.id" v-model="item.done" ></ion-checkbox>
             <label v-bind:for="'item_' + item.id"></label>
             <span class="done-text">&#160;{{ item.title }}</span>
-            <!-- <ion-button class="delete" @click="deleteItem(item)">delete</ion-buttonn> -->
+  <!-- <ion-button class="delete" @click="deleteItem(item)">delete</ion-buttonn> -->
           </ion-list>
 
   </div>
-      <ion-button  className="showButton" v-if="completed.length > 0" @click="toggleShowComplete"><span v-if="!showComplete">Show</span><span v-else>Hide</span>&#160; Complete</ion-button>
+  <!-- Toggle for showButton, which shows the completed tasks -->
+      <ion-button  className="showButton" v-if="completed.length > 0" @click="toggleShowComplete">
+        <span v-if="!showComplete">Show</span><span v-else>Hide</span>&#160; Complete</ion-button>
+  <!-- If showButton is true and completed.length > 0, then show the clear all button -->
+      <ion-button className="clearBtn"  v-if="todoList.length > 0 && showComplete" @click="clearAll">Clear All</ion-button>
+      
 
 </div>
-<div class="clearBtn" v-if="todoList.length > 0" @click="clearAll">Clear All</div>
 
 
 
