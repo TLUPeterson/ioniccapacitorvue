@@ -1,1 +1,22 @@
-Testio
+# Task app 
+
+## Rakenduse kirjeldus
+Taskide app, mis ei vaja interneti ühendust. Made with Ionic/Capacitor in Vue and typescript
+
+## Paigaldus
+Alustuseks: ```npm install```
+
+Brauseris jooksutamiseks: ```ionic serve```
+
+Füüsilises seadmes jooksutamiseks: ```ionic cap run android```
+
+## Dependencies:
+ Vue 3.2.21
+ 
+ Ionic 5.9.3
+ 
+ Uuid" 8.3.2
+ 
+ ##
+Autor:
+ Margen Peterson
