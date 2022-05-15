@@ -1,4 +1,6 @@
 <template>
+<!-- /* THIS FILE IS OBSOLOETE FOR CURRENT STATE OF THE APP, BUT LEAVING IT IN JUST IN CASE */ -->
+
     <main-layout pageTitle="Home">
 <ion-content >
           <svg xmlns="http://www.w3.org/2000/svg"
@@ -7,16 +9,17 @@
           >
               <polygon points="0 0, 0 75, 0 75, 75 0" style="fill:#2c365a;" />
               <polygon points="75 0, 0 75, 175 75, 250 0" style="fill:#6baed8" />
+              <polygon points="0 75, 0 175, 175 175, 175 75" style="fill:#2c365a;" />
               <circle cx="175" cy="75" r="75" style="fill:#88cbdb;opacity:1"/>
               <polygon points="250 0, 250 150, 175 75" style="fill:#2c365a" />
               <polygon points="175 75, 175 0, 250 0" style="fill:#88cbdb" />
-              <polygon points="175 75, 250 75, 250 175, 175, 175" style="fill:#ee786c" />
+              <polygon points="175 75, 250 75, 250 175, 175 175" style="fill:#ee786c" />
               <polygon points="250 0, 395 0, 395 175, 250 175" style="fill:#fffcdb" />
           </svg>  
     
-  <ion-fab vertical="bottom" horizontal="center" slot="fixed">
-      <ion-fab-button v-on:click="takePhoto()"> 
-          <ion-icon :icon="camera"></ion-icon>
+  <ion-fab class="takePhoto" vertical="bottom" horizontal="center" slot="fixed">
+      <ion-fab-button class="takePhoto" v-on:click="takePhoto()"> 
+          <ion-icon  :icon="camera"></ion-icon>
       </ion-fab-button>
   </ion-fab>
 
@@ -24,14 +27,12 @@
       <ion-img :src="photo.webviewPath" @click="showActionSheet(photo)" ></ion-img> 
   </ion-avatar>
 
-  <div id="profile">
-  <p>
-    My name is <input v-model="name">
-    and I am <input v-model="age"> years old.
-  </p>
-  <p>
-    <button id="quoteButton" @click="persist">Save</button>
-  </p>
+<div id="profile">
+
+    <ion-input class="profileButton" v-model="name" placeholder="Name"/>
+
+    <ion-button class="saveButton" @click="persist">Save</ion-button>
+
 </div>
 
 
@@ -43,8 +44,7 @@
 /* eslint-disable vue/no-unused-components */
 import { camera, trash, close, checkmark } from 'ionicons/icons';
 import { usePhotoGallery } from '@/components/usePhotoGallery';
-import { Storage } from '@capacitor/storage';
-
+import {useRouter} from 'vue-router'
 import {  
           IonAvatar,
           IonFab,
@@ -53,28 +53,18 @@ import {
           IonContent,
           IonImg,
           actionSheetController,
+          IonInput,
+          IonButton,
         } from '@ionic/vue'
-import {useRouter} from 'vue-router'
 
 export default {
-components:{ IonAvatar, IonFab, IonFabButton, IonIcon, IonContent, IonImg, actionSheetController },
+components:{ IonAvatar, IonFab, IonFabButton, IonIcon, IonContent, IonImg, actionSheetController, IonInput, IonButton },
 setup(){
     const { takePhoto, photos, deletePhoto } = usePhotoGallery();
     const router = useRouter();
 
-    const setName = async () => {
-        await Storage.set({
-            key: 'name',
-            value: 'Max',
-        });};
-
-    const checkName = async () => {
-        const { value } = await Storage.get({ key: 'name' });
-        console.log(`Hello ${value}!`);
-        };
-
     const showActionSheet = async (photo) => {
-        const actionSheet = await actionSheetController.create({
+    const actionSheet = await actionSheetController.create({
         header: 'Photos',
         buttons: [
         {
@@ -106,8 +96,6 @@ setup(){
         trash,
         close,
         checkmark,
-        setName,
-        checkName,
         name: '',
         age: 0,
 
@@ -128,8 +116,9 @@ setup(){
         persist() {
         localStorage.name = this.name;
         localStorage.age = this.age;
-        console.log('now pretend I did more stuff...');
+        console.log('...done');
         }
     },
+
 }
 </script>

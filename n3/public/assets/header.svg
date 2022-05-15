@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs"  preserveAspectRatio="none" viewBox="0 35 395 75">
+    <g mask="url(&quot;#SvgjsMask1023&quot;)" fill="none">
+                      <polygon points="0 0, 0 75, 0 75, 75 0" style="fill:#2c365a;" />
+              <polygon points="75 0, 0 75, 175 75, 250 0" style="fill:#6baed8" />
+              <polygon points="0 75, 0 175, 175 175, 175 75" style="fill:#2c365a;" />
+              <circle cx="175" cy="75" r="75" style="fill:#88cbdb;opacity:1"/>
+              <polygon points="250 0, 250 150, 175 75" style="fill:#2c365a" />
+              <polygon points="175 75, 175 0, 250 0" style="fill:#88cbdb" />
+              <polygon points="175 75, 250 75, 250 175, 175 175" style="fill:#ee786c" />
+              <polygon points="250 0, 395 0, 395 175, 250 175" style="fill:#fffcdb" />
+    </g>
+
+</svg>

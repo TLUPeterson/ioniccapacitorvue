@@ -4,9 +4,7 @@ import router from './router';
 import MainLayout from  './components/MainLayout.vue';
 import SideMenu from './components/SideMenu.vue';
 import { defineCustomElements } from '@ionic/pwa-elements/loader';
-
 import { IonicVue } from '@ionic/vue';
-
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/vue/css/core.css';
@@ -34,7 +32,8 @@ const app = createApp(App)
   .use(router);
 
   app.component('main-layout',MainLayout);
-  app.component('side-menu', SideMenu);  
+/* Don't need sidemenu for current version */
+/*  app.component('side-menu', SideMenu);  */
 
 router.isReady().then(() => {
   app.mount('#app');
