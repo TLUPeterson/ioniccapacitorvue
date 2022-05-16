@@ -41,16 +41,16 @@ export default {
   },
   
   props: ["pageTitle"],
-  data() {
+/*  data() {
     return {
       menu,
     };
   },
-  /*openMenu is for sidemenu*/ 
+  //openMenu is for sidemenu 
   methods: {
     openMenu() {
       menuController.open("sidemenu");
     },
-  },
+  },*/
 };
 </script>

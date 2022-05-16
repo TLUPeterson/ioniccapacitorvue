@@ -95,6 +95,7 @@ export default defineComponent({
       deep: true
     }
   },
+  //Due to needing pending and completed constaly updated, I use computed properties to change them reactively
   computed:{
     pending: function() {
       return this.todoList.filter(function(item) {
