@@ -23,7 +23,6 @@ Füüsilises seadmes jooksutamiseks: ```ionic cap run android```
  
  Ionic 5.9.3
  
- Uuid" 8.3.2
  
  ##
 Autor:
