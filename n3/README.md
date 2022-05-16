@@ -6,7 +6,7 @@ Taskide app, mis ei vaja interneti ühendust. Made with Ionic/Capacitor in Vue a
 ## Paigaldus
 
 
-Alustuseks: ```npm install```
+Alustuseks(N3 kaustas): ```npm install```
 
  ```npm i -D -E @vue/cli-service```
 
