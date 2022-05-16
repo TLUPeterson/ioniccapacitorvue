@@ -1,6 +1,6 @@
 <template>
   <ion-app>
-    <side-menu></side-menu>
+    <!-- <side-menu></side-menu> -->
     <ion-router-outlet id="mymenu" />
   </ion-app>
 </template>
