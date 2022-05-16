@@ -10,7 +10,7 @@ const routes: Array<RouteRecordRaw> = [
     path: '/',
     redirect: '/tasks'
   },
-  {
+  /*{
     path: '/home',
     name: 'Home',
     component: HomePage
@@ -18,7 +18,7 @@ const routes: Array<RouteRecordRaw> = [
   {
     path: "/kanye",
     component: ProfilePage,
-  },
+  },*/
   {
     path: "/tasks",
     component: PageTwo,
