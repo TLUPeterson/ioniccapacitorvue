@@ -23,7 +23,7 @@ Füüsilises seadmes jooksutamiseks: ```ionic cap run android```
  
  Ionic 5.9.3
  
- 
+ Capacitor 3.4.3
  ##
 Autor:
  Margen Peterson
