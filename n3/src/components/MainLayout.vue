@@ -1,14 +1,7 @@
 <template>
     <ion-page>
         <ion-header class="ion-no-border">
-
             <ion-toolbar >
-              <!-- Menu is not really necessary when tasks only page -->
-              <!-- <ion-buttons @click="openMenu()" slot="start" id="menuButton">
-                <ion-icon :icon="menu" slot="start"></ion-icon>
-              </ion-buttons> -->
-
-              <!-- Title for a page comes from here-->
                 <ion-title id="menuText">{{pageTitle}}</ion-title>
             </ion-toolbar>
         </ion-header>
@@ -25,11 +18,7 @@ import {
   IonContent,
   IonTitle,
   IonToolbar,
-  menuController,
-  IonButtons,
-  IonIcon,
   } from "@ionic/vue";
-import { menu } from "ionicons/icons";
 export default {
   components: {
     IonPage,
@@ -41,16 +30,5 @@ export default {
   },
   
   props: ["pageTitle"],
-/*  data() {
-    return {
-      menu,
-    };
-  },
-  //openMenu is for sidemenu 
-  methods: {
-    openMenu() {
-      menuController.open("sidemenu");
-    },
-  },*/
 };
 </script>

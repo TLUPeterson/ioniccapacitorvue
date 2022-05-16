@@ -1,6 +1,7 @@
 <template>
   <!-- List of Text Items -->
   <main-layout pageTitle="Tasks">
+
         <div class="svg-container">
           <img src="assets/header.svg" alt="header">
         </div>
@@ -17,10 +18,9 @@
 
   <!-- Adds task to array -->
 <!-- eslint-disable-next-line vue/no-unused-vars -->
-          <ion-list v-for="(item, index) in pending" v-bind:key="item.title">
+          <ion-list v-for="(item, index) in pending" v-bind:key="item.id">
             <ion-checkbox v-bind:id="'item_' + item.id" v-model="item.done" ></ion-checkbox>
             <span class="todo-text"> &#160; {{ item.title }}</span>
-            <!-- <ion-button class="delete" @click="deleteItem(item)">-</ion-button> -->
           </ion-list>
       </div> 
   <!-- If no more tasks > shows no tasks message with img -->
@@ -31,17 +31,18 @@
 
   <!-- Lists already completed tasks if showComplete is true(button has been clicked) -->
 <!-- eslint-disable-next-line vue/no-unused-vars -->
-          <ion-list v-for="(item, index) in completed" v-bind:key="item.title">
+          <ion-list v-for="(item, index) in completed" v-bind:key="item.id">
             <ion-checkbox v-bind:id="'item_' + item.id" v-model="item.done" ></ion-checkbox>
             <label v-bind:for="'item_' + item.id"></label>
             <span class="done-text">&#160;{{ item.title }}</span>
-  <!-- <ion-button class="delete" @click="deleteItem(item)">delete</ion-buttonn> -->
           </ion-list>
 
-  </div>
+      </div>
   <!-- Toggle for showButton, which shows the completed tasks -->
       <ion-button  className="showButton" v-if="completed.length > 0" @click="toggleShowComplete">
-        <span v-if="!showComplete">Show</span><span v-else>Hide</span>&#160; Complete</ion-button>
+        <span v-if="!showComplete">Show</span>
+        <span v-else>Hide</span> &#160; Complete
+      </ion-button>
   <!-- If showButton is true and completed.length > 0, then show the clear all button -->
       <ion-button className="clearBtn"  v-if="completed.length > 0 && showComplete" @click="clearAll">Clear All</ion-button>
       
@@ -56,7 +57,6 @@
 <script>
 import MainLayout from '@/components/MainLayout.vue';
 import { 
-  IonItem, 
   IonList, 
   IonInput,
   IonCheckbox,
@@ -87,6 +87,7 @@ export default defineComponent({
   mounted() {
     this.getTodos();
   },
+  /* If change has been noted*/
   watch: {
     todoList: {
       handler: function(updatedList) {

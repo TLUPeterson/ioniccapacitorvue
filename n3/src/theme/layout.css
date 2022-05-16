@@ -40,20 +40,9 @@ ion-button{
   --size: 2%;
 }
 
-/* ion-input{
-  --background: red;
-  --color: red;
-  --ion-item-background:#ffffffff;
-  --ion-text-color:#10123b;
-  --ion-border-color: #6baed8;
-} */
 #menuIcon{
   color:#6baed8;
 }
-/*
-https://ionicframework.com/docs/theming/themes
-https://ionicframework.com/docs/theming/basics
-*/
 
 #h4 {
   z-index: 100;
@@ -118,15 +107,6 @@ ion-checkbox{
   text-align: center;
 }
 
-/* #svg-container{
-	display: inline-block;
-	position: relative;
-	width: 100%;
-	padding-bottom: 100%; 
-	vertical-align: middle; 
-	overflow: hidden; 
-} */
-
 #svg-content { 
   width: 100%;
 }
@@ -148,16 +128,6 @@ ion-checkbox{
   right: 5%;
   bottom: 5%;
 }
-
-/* .control-buttons{
-  position: absolute;
-  bottom: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 100%;
-  text-align: center;
-} */
-
 
 .main{
   left: 5%;
