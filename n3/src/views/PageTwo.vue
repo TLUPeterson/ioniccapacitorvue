@@ -43,7 +43,7 @@
       <ion-button  className="showButton" v-if="completed.length > 0" @click="toggleShowComplete">
         <span v-if="!showComplete">Show</span><span v-else>Hide</span>&#160; Complete</ion-button>
   <!-- If showButton is true and completed.length > 0, then show the clear all button -->
-      <ion-button className="clearBtn"  v-if="todoList.length > 0 && showComplete" @click="clearAll">Clear All</ion-button>
+      <ion-button className="clearBtn"  v-if="completed.length > 0 && showComplete" @click="clearAll">Clear All</ion-button>
       
 
 </div>
